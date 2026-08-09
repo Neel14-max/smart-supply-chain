@@ -1,93 +1,185 @@
-# 📦 PackageRoute — Smart Delivery Navigator
+# 🚀 Smart Supply Chain Optimization System (LogiRoute)
 
-A Google Maps-style web app for finding the **shortest and all possible routes** for package delivery, powered by OpenRouteService Directions API.
-
----
-
-## 🚀 Setup in 3 Steps
-
-### 1. Get a Free API Key
-- Go to [openrouteservice.org/dev/#/signup](https://openrouteservice.org/dev/#/signup)
-- Sign up for free (2000 requests/day, no credit card)
-- Copy your API key from the dashboard
-
-### 2. Configure Environment
-```bash
-cp .env.example .env
-# Edit .env and paste your API key
-```
-
-Or just open `app.py` and replace `YOUR_ORS_API_KEY_HERE` with your key.
-
-### 3. Install & Run
-```bash
-pip install -r requirements.txt
-python app.py
-```
-
-Open **http://localhost:5000** in your browser 🎉
+> AI-powered Logistics Optimization & Real-Time Route Intelligence Platform
 
 ---
 
-## ✨ Features
+## 📌 Overview
 
-| Feature | Details |
-|---------|---------|
-| 🗺️ Dark Map Interface | Google Maps-style with CartoDB dark tiles |
-| 🔍 Geocoding | Type any city name — it auto-converts to coordinates |
-| 🚗 Multiple Profiles | Car, Heavy Goods Vehicle, Bicycle, Walking |
-| ↔️ Alternative Routes | Up to 3 alternatives per transport mode |
-| ⚡ Fastest Route | Auto-highlighted in green, shown at the top |
-| 📋 All Routes Listed | Sorted by travel time with full metrics |
-| 🗺️ Turn-by-Turn | Step-by-step directions for selected route |
-| 📍 Click to Select | Click any route card or polyline to highlight it |
+**LogiRoute** is a full-stack intelligent logistics system designed to optimize delivery routes using real-time data, AI-driven traffic insights, and multi-factor decision logic.
+
+It acts as a **LogicCore engine** that combines route generation, traffic prediction, weather analysis, and risk scoring to deliver the most efficient, safe, and cost-effective routes.
 
 ---
 
-## 📁 Project Structure
+## 🧠 Key Features
 
-```
-package-route/
-├── app.py              ← Flask backend (API routes + geocoding)
-├── requirements.txt    ← Python dependencies
-├── .env.example        ← Environment template
-├── .env                ← Your API key (create this)
-└── static/
-    └── index.html      ← Full frontend (Leaflet map + UI)
-```
+### 🚚 Smart Route Optimization
+- Generates multiple alternative routes  
+- Uses OpenRouteService for navigation  
+- Removes duplicate routes  
 
----
+### 🌦 Weather-Aware Routing
+- Integrates OpenWeather API  
+- Calculates weather risk score  
+- Considers rain, wind, and visibility  
 
-## 🔌 API Endpoints
+### 🚦 AI-Powered Traffic Intelligence
+- Uses Gemini API  
+- Predicts congestion, delays, and incidents  
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `GET /` | GET | Serve the frontend |
-| `GET /api/geocode?place=Mumbai` | GET | Convert place name to coordinates |
-| `POST /api/routes` | POST | Get all routes between two points |
-| `GET /api/profiles` | GET | List available transport profiles |
+### ⚠️ LogicCore Decision Engine
+- Combines:
+  - Traffic  
+  - Weather  
+  - Distance  
+  - Road conditions  
+- Produces optimized route ranking  
 
-### Example POST /api/routes
-```json
-{
-  "start": "Mumbai, India",
-  "end": "Pune, India"
-}
-```
+### 📍 Live Tracking Dashboard
+- ETA calculation  
+- Delivery tracking  
+- Alerts and updates  
 
----
-
-## 🛠️ Extending the Project
-
-- **Add Google Maps API**: Replace ORS with Google Directions API for more route options
-- **Database**: Store route history with SQLite/PostgreSQL
-- **Real-time tracking**: Add WebSockets for live package location
-- **Cost estimation**: Add fuel/toll cost calculation per route
-- **Export**: Add PDF/CSV export of route details
+### 🛠 POI Detection
+- Detects fuel stations, garages, food stops  
+- Uses OpenStreetMap (Overpass API)  
 
 ---
 
-## 📝 Notes
-- OpenRouteService covers most of the world's road network
-- For India, coverage is excellent in major cities
-- Alternative routes availability depends on the road network density
+## 🏗 System Architecture
+
+![Architecture](docs/architecture.png)
+
+---
+
+## 🔄 Workflow
+
+![Flowchart](docs/flowchart.png)
+
+---
+
+## ⚙️ Tech Stack
+
+### 💻 Frontend
+- HTML5, CSS3  
+- JavaScript  
+- Leaflet.js  
+
+### ⚙️ Backend
+- Python (Flask)  
+- REST APIs  
+
+### 🌐 APIs Used
+- OpenRouteService  
+- OpenWeatherMap  
+- Gemini API  
+- OpenStreetMap Overpass API  
+
+---
+
+## 📂 Project Structure
+
+smart-supply-chain/
+│
+├── frontend/
+│   ├── index.html
+│   ├── css/
+│   ├── js/
+│   └── assets/
+│
+├── backend/
+│   ├── app.py
+│   ├── services/
+│   └── utils/
+│
+├── docs/
+│   ├── architecture.png
+│   ├── flowchart.png
+│   └── screenshots/
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+---
+
+## 🔑 Setup Instructions
+
+### 1. Clone Repository
+git clone https://github.com/your-username/smart-supply-chain.git  
+cd smart-supply-chain  
+
+### 2. Install Dependencies
+pip install -r requirements.txt  
+
+### 3. Setup Environment Variables
+
+Create `.env` file:
+
+ORS_KEY=your_openrouteservice_key  
+OWM_KEY=your_openweather_key  
+GEMINI_KEY=your_gemini_api_key  
+
+---
+
+### 4. Run Backend
+python app.py  
+
+---
+
+### 5. Run Frontend
+Open `frontend/index.html` in your browser.
+
+---
+
+## 📡 API Endpoints
+
+- /api/routes → Generate routes  
+- /api/weather → Weather data  
+- /api/gemini-traffic → AI traffic insights  
+- /api/pois → POI data  
+
+---
+
+## 🧠 LogicCore Engine
+
+Score = f(Traffic, Weather, Distance, Duration, Risk Factors)
+
+Each route is evaluated, scored, and ranked.
+
+---
+
+## 🚀 Future Enhancements
+
+- Mobile app integration  
+- IoT-based GPS tracking  
+- Machine learning-based route prediction  
+- Power BI analytics dashboard  
+- Cloud deployment  
+
+---
+
+## 🔐 Security Notes
+
+- Do NOT upload `.env`  
+- Use `.env.example`  
+- Rotate API keys if exposed  
+
+---
+
+## 📜 License
+
+CC0-1.0 License
+
+---
+
+## 👨‍💻 Author
+
+**Neel Raval**  
+Electronics & Communication Engineer  
+Embedded Systems | VLSI | AI Systems  
+
+---
+
