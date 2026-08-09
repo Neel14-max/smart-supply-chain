@@ -80,7 +80,7 @@ It acts as a **LogicCore engine** that combines route generation, traffic predic
 
 ## 📂 Project Structure
 
-smart-supply-chain/
+```smart-supply-chain/
 │
 ├── frontend/
 │   ├── index.html
@@ -101,7 +101,7 @@ smart-supply-chain/
 ├── .env.example
 ├── .gitignore
 ├── requirements.txt
-└── README.md
+└── README.md```
 
 ---
 
